@@ -48,8 +48,8 @@ export const api = {
         name: model.desc.split(' (')[0], // Extract name from description
         description: model.desc,
         avatar: `https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg`, // Default avatar
-        color: this.getVoiceColor(id),
-        accent: this.getVoiceAccent(id),
+        color: api.getVoiceColor(id),
+        accent: api.getVoiceAccent(id),
       }));
     } catch (error) {
       console.warn('Using mock voices due to API error:', error);
