@@ -1,2 +1,2 @@
-# ClosedAIv2
- 
+# ClosedAI
+ GenAI, TTS, Uses RVC, trained.

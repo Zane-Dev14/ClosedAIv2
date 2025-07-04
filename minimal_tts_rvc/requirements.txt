@@ -1,0 +1,16 @@
+# Minimal requirements for TTS + RVC voice conversion
+edge-tts
+numpy
+soundfile
+librosa
+torch
+faiss-cpu
+soxr
+noisereduce
+pedalboard
+wget
+transformers
+torchaudio
+resampy
+torchcrepe
+# Optional: torchfcpe if using fcpe F0 extraction

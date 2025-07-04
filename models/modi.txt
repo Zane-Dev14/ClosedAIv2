@@ -1,0 +1,56 @@
+It can explain in simple language, free of any jargon, but it means for your health.
+If you ask the same app to draw an image of someone writing with their left hand,
+the app will most likely draw someone writing with the right hand.
+Because that is what the training data is dominated by.
+It shows that while the positive potential of AI is absolutely amazing.
+There are many biases that we need to think carefully about.
+That is why I am grateful to my friends, personally in Macrom, for hosting this summit.
+And for inviting me to co-chair it, friends, AI is already reshaping our quality,
+our economy, our security and even our society.
+AI is writing the code for humanity, AI is writing the code for humanity in this century.
+But it is very different from other technology milestones in human history.
+AI is developing at an unprecedented scale and speed and being adapted and deployed even faster.
+There is also a deep interdependence across borders.
+Therefore, there is a need for collective global efforts to establish governance and standards that upload our shared values,
+address risks and build trust.
+But governance is not just about managing risks and rivalries.
+It is also about promoting innovation and deploying it for the global good.
+So, we must think deeply and discuss openly about innovation and governance.
+Governance is also about ensuring access to all, especially in the global south.
+It is where the capabilities are most lacking, be it compute, power, talent, data or the financial resources.
+Friends, AI can help transform millions of lives by improving health, education, agriculture and so much more.
+It can help create a world in which the journey to sustainable development goals becomes easier and faster.
+To do this, we must pull together resources and talent.
+We must develop open source systems that are in a hand trust and transparency.
+We must build quality data sets free from biases.
+We must demonstrate technology and create people's centric applications.
+We must address concerns related to cyber security, disinformation and defects.
+And we must also ensure that technology is rooted in local ecosystems for it to be effective and useful.
+Friends, laws of jobs is AI's most feared disruption.
+But history has shown that work does not disappear due to technology.
+Its nature changes and new types of jobs are created.
+We need to invest in scaling and re-skilling of our people for an AI-driven future.
+Friends, there is no doubt that the high energy intensity of AI needs to be looked into.
+This will require green power to fuel its future.
+India and France have worked together for years through initiatives like the International Solar Alliance to harness the power of the Sun.
+At the advance of our partnership to AI, it is a natural progression from sustainability to innovation to shape a smarter and responsible future.
+At the same time, sustainable AI does not only mean using clean energy.
+AI models must also be efficient and sustainable in such data needs and resources requirements.
+After all, the human brain manages to compose poetry and design spaceships using less power than most light bulbs.
+Friends, India has successfully built a digital public infrastructure for over 1.4 billion people at a very low cost.
+It is built around an open and accessible network.
+It has regulations and a wide range of applications to modernize our economy, reform governance and transform the lives of our people.
+We have unlocked the power of data through our data empowerment and protection architecture.
+And we have made digital commerce democratic and accessible to all.
+This vision is the foundation of India's national AI mission.
+That is why, during our G20 presidency, we built a consensus on strengthening AI responsibly for good and for all.
+Today, India leads in AI adoption and techno legal solutions on data privacy.
+We are developing AI applications for public good.
+We have one of the world's largest AI talent pools.
+India is building its own large language model considering our diversity.
+We also have a unique public private partnership model for pulling resources like compute power.
+It is made available to our startups and researchers at an affordable cost.
+And India is ready to share its experience and expertise to ensure that AI future is for good and for all.
+Friends, we are at the dawn of the AI age. That will save the course of humanity.
+Some people worry about machines becoming superior in intelligence to humans.
+But no one holds the key.
