@@ -117,7 +117,8 @@ export const InteractiveBackground = () => {
   return (
     <motion.canvas
       ref={canvasRef}
-      className="fixed inset-0 pointer-events-none z-0"
+      style={{ left: 0, top: 0, right: 0, bottom: 0, width: '100%', height: '100%', position: 'fixed' }}
+      className="pointer-events-none z-0"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 2 }}

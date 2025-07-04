@@ -12,8 +12,11 @@ export const MouseFollower = () => {
 
   useEffect(() => {
     const moveCursor = (e: MouseEvent) => {
-      mouseX.set(e.clientX - 16);
-      mouseY.set(e.clientY - 16);
+      // Clamp the position so the follower never goes outside the viewport
+      const x = Math.max(0, Math.min(window.innerWidth - 32, e.clientX - 16));
+      const y = Math.max(0, Math.min(window.innerHeight - 32, e.clientY - 16));
+      mouseX.set(x);
+      mouseY.set(y);
     };
 
     window.addEventListener('mousemove', moveCursor);
@@ -27,6 +30,9 @@ export const MouseFollower = () => {
       style={{
         x: cursorX,
         y: cursorY,
+        maxWidth: '100vw',
+        maxHeight: '100vh',
+        overflow: 'clip',
       }}
     >
       <div className="w-full h-full bg-white rounded-full opacity-75" />

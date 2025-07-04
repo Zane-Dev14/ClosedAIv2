@@ -42,7 +42,7 @@ export const useVoiceSynthesis = () => {
     mutationFn: async (request: SynthesisRequest) => {
       setSynthesisState(prev => ({ ...prev, isLoading: true, progress: 0, error: null }));
       
-      // Simulate progress for demo
+      // Simulate progress for better UX
       const progressInterval = setInterval(() => {
         setSynthesisState(prev => ({
           ...prev,
@@ -51,25 +51,19 @@ export const useVoiceSynthesis = () => {
       }, 200);
 
       try {
-        // For demo purposes, simulate API response
-        await new Promise(resolve => setTimeout(resolve, 2000));
-        
-        const mockResponse: SynthesisResponse = {
-          audio_url: 'https://www.soundjay.com/misc/sounds/magic-chime-02.mp3',
-          duration: 120,
-          status: 'success',
-        };
+        // Call the real backend API
+        const response = await api.synthesizeVoice(request);
 
         clearInterval(progressInterval);
         setSynthesisState(prev => ({
           ...prev,
           isLoading: false,
           progress: 100,
-          audioUrl: mockResponse.audio_url,
-          duration: mockResponse.duration,
+          audioUrl: response.audioUrl,
+          duration: response.duration,
         }));
 
-        return mockResponse;
+        return response;
       } catch (error) {
         clearInterval(progressInterval);
         const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
@@ -85,12 +79,10 @@ export const useVoiceSynthesis = () => {
   });
 
   const synthesizeVoice = useCallback(
-    (text: string, voiceId: string, options?: { speed?: number; pitch?: number }) => {
+    (text: string, voiceId: string) => {
       return synthesizeMutation.mutate({
         text,
-        voice_id: voiceId,
-        speed: options?.speed,
-        pitch: options?.pitch,
+        model: voiceId,
       });
     },
     [synthesizeMutation]
