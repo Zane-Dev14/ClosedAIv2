@@ -303,17 +303,20 @@ function AppContent() {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white overflow-hidden relative">
+    <div className="min-h-screen bg-black text-white overflow-x-hidden w-full max-w-full relative">
       <ScrollProgress />
       <MouseFollower />
       <InteractiveBackground />
       
       {/* Enhanced Particle Background */}
-      <ParticleBackground
-        accentColor={selectedVoice?.accent || '#3b82f6'}
-        intensity={80}
-        interactive={true}
-      />
+      <div className="w-full max-w-full overflow-x-hidden absolute inset-0">
+        <ParticleBackground
+          accentColor={selectedVoice?.accent || '#3b82f6'}
+          intensity={80}
+          interactive={true}
+        />
+        <InteractiveBackground />
+      </div>
 
       {/* Hero Section */}
       <section ref={heroRef} className="relative min-h-screen flex items-center justify-center">
@@ -328,7 +331,11 @@ function AppContent() {
               whileHover={{ scale: 1.1 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <FloatingMicrophone />
+              <div className="w-40 h-40 flex items-center justify-center mx-auto">
+                <Canvas className="w-full h-full max-w-full max-h-full">
+                  <MicrophoneContent />
+                </Canvas>
+              </div>
             </motion.div>
 
             {/* Enhanced Title with Gradient Animation */}
@@ -486,7 +493,7 @@ function AppContent() {
       <section id="voices-section" className="relative py-32 animate-on-scroll mt-40">
         <motion.div 
           style={{ y: y2 }}
-          className="container mx-auto px-4 z-10"
+          className="container mx-auto px-4 z-10 w-full"
         >
           <AnimatedText className="text-center mb-20" delay={0.2}>
             <h2 className="text-6xl md:text-7xl font-black mb-8 bg-gradient-to-r from-white via-blue-200 to-purple-200 bg-clip-text text-transparent">
@@ -527,7 +534,7 @@ function AppContent() {
 
       {/* Text Input Section */}
       <section className="relative py-32 animate-on-scroll">
-        <div className="container mx-auto px-4 z-10">
+        <div className="container mx-auto px-4 z-10 w-full">
           <AnimatedText className="max-w-4xl mx-auto" delay={0.3}>
             <div className="text-center mb-16">
               <h2 className="text-6xl md:text-7xl font-black mb-8 bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent">
