@@ -42,24 +42,24 @@ export const useVoiceSynthesis = () => {
     mutationFn: async (request: SynthesisRequest) => {
       setSynthesisState(prev => ({ ...prev, isLoading: true, progress: 0, error: null }));
       
-      // Simulate progress for better UX
+      // Simulate progress while API call is in progress
       const progressInterval = setInterval(() => {
         setSynthesisState(prev => ({
           ...prev,
-          progress: Math.min(prev.progress + Math.random() * 15, 90),
+          progress: Math.min(prev.progress + Math.random() * 10, 90),
         }));
-      }, 200);
+      }, 300);
 
       try {
-        // Call the real backend API
+        // Call the actual API
         const response = await api.synthesizeVoice(request);
-
+        
         clearInterval(progressInterval);
         setSynthesisState(prev => ({
           ...prev,
           isLoading: false,
           progress: 100,
-          audioUrl: response.audioUrl,
+          audioUrl: response.audio_url,
           duration: response.duration,
         }));
 
@@ -79,10 +79,19 @@ export const useVoiceSynthesis = () => {
   });
 
   const synthesizeVoice = useCallback(
-    (text: string, voiceId: string) => {
+    (text: string, model: string, options?: { 
+      speed?: number; 
+      pitch?: number; 
+      use_rag?: boolean; 
+      context_window?: number; 
+    }) => {
       return synthesizeMutation.mutate({
         text,
-        model: voiceId,
+        model,
+        use_rag: options?.use_rag ?? false,
+        context_window: options?.context_window ?? 3,
+        speed: options?.speed,
+        pitch: options?.pitch,
       });
     },
     [synthesizeMutation]

@@ -12,6 +12,8 @@ import { Toaster } from '@/components/ui/sonner';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { Switch } from '@/components/ui/switch';
+import { Label } from '@/components/ui/label';
 import { ParticleBackground } from '@/components/ParticleBackground';
 import { VoiceCard } from '@/components/VoiceCard';
 import { TextInput } from '@/components/TextInput';
@@ -199,6 +201,7 @@ const ScrollToTop = () => {
 function AppContent() {
   const [selectedVoice, setSelectedVoice] = useState<VoiceModel | null>(null);
   const [inputText, setInputText] = useState('');
+  const [useRag, setUseRag] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll();
@@ -279,7 +282,10 @@ function AppContent() {
     }
 
     try {
-      await synthesizeVoice(inputText, selectedVoice.id);
+      await synthesizeVoice(inputText, selectedVoice.id, {
+        use_rag: useRag,
+        context_window: 3
+      });
       toast.success('Voice synthesis completed!');
     } catch (error) {
       toast.error('Failed to synthesize voice');
@@ -539,6 +545,40 @@ function AppContent() {
               maxLength={1000}
               disabled={synthesisState.isLoading}
             />
+
+            {/* RAG Toggle */}
+            <motion.div
+              className="mt-8 flex items-center justify-center space-x-4"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.3 }}
+            >
+              <div className="flex items-center space-x-3 bg-white/5 backdrop-blur-sm rounded-xl px-6 py-4 border border-white/10">
+                <Switch
+                  id="rag-mode"
+                  checked={useRag}
+                  onCheckedChange={setUseRag}
+                  className="data-[state=checked]:bg-blue-500 data-[state=unchecked]:bg-gray-600"
+                />
+                <Label 
+                  htmlFor="rag-mode" 
+                  className="text-lg font-medium text-white cursor-pointer"
+                >
+                  Use RAG
+                </Label>
+                {useRag && (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="ml-2"
+                  >
+                    <Badge className="bg-blue-500/20 text-blue-300 border-blue-500/30">
+                      Active
+                    </Badge>
+                  </motion.div>
+                )}
+              </div>
+            </motion.div>
 
             {/* Enhanced Generate Button */}
             <motion.div
