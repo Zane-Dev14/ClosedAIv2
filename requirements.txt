@@ -7,10 +7,7 @@ torch
 faiss-cpu
 soxr
 noisereduce
-pedalboard
 wget
-transformers
-torchaudio
 resampy
 torchcrepe
 # Optional: torchfcpe if using fcpe F0 extraction
@@ -20,15 +17,10 @@ fastapi
 uvicorn[standard]
 pydantic
 
-# Testing dependencies
-requests
-
-# New dependencies
+# RAG and OpenAI
 openai>=1.0.0
-langchain>=0.1.0
-langchain-community>=0.0.10
-langchain-openai>=0.0.5
-langchain-chroma>=0.0.5
 chromadb>=0.4.0
-tiktoken>=0.5.0
 python-dotenv>=1.0.0
+
+# Requests is used for model/pattern downloads
+requests

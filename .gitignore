@@ -10,6 +10,8 @@ venv/*
 __pycache__/*
 minimal_tts_rvc/__pycache__/*
 *.pyc
+*.pyo
+*.pyd
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
@@ -132,3 +134,46 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Node and frontend
+node_modules/
+frontend/node_modules/
+frontend/.bolt/
+frontend/dist/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Output and models (do not track generated files)
+output/
+models/*.pth
+models/*.index
+models/*.wav
+models/*.txt
+minimal_tts_rvc/output_*.mp3
+minimal_tts_rvc/output_*.wav
+
+# Test and dev scripts
+*.log
+test_*.py
+populate_patterns.py
+test_api.py
+test_env.py
+test_rag_system.py
+test_api_key.py
+
+# VSCode and IDE
+.vscode/
+.idea/
+.DS_Store
+
+# Build
+build/
+dist/
+
+# Keep speech_documents and speech_patterns_db for RAG
+!speech_documents/
+!speech_patterns_db/

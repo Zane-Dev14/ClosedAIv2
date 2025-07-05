@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
 import { useMutation, useQuery } from '@tanstack/react-query';
-import { api, mockVoices, SynthesisRequest, SynthesisResponse } from '@/lib/api';
+import { api, mockVoices, SynthesisRequest } from '@/lib/api';
 
 export interface SynthesisState {
   isLoading: boolean;

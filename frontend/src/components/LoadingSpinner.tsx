@@ -33,7 +33,6 @@ export const LoadingSpinner: React.FC<LoadingSpinnerProps> = ({
               duration: 3 + i, 
               repeat: Infinity, 
               ease: "linear",
-              direction: i % 2 === 0 ? 'normal' : 'reverse'
             }}
           />
         ))}
