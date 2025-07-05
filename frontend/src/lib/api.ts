@@ -76,7 +76,14 @@ export const api = {
       throw new Error('Voice synthesis failed');
     }
     
-    return response.json();
+    const data = await response.json();
+    
+    // Construct full URL for audio file
+    if (data.audio_url && !data.audio_url.startsWith('http')) {
+      data.audio_url = `${API_BASE_URL}${data.audio_url}`;
+    }
+    
+    return data;
   },
 
   async checkHealth(): Promise<{ status: string }> {

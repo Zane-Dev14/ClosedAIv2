@@ -248,6 +248,19 @@ def search_patterns(query: str, model: str, k: int = 3):
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Search failed: {e}")
 
+@app.get("/audio/{filename}")
+def get_audio_file(filename: str):
+    """Serve audio files"""
+    file_path = os.path.join("output", filename)
+    if not os.path.exists(file_path):
+        raise HTTPException(status_code=404, detail="Audio file not found")
+    
+    return FileResponse(
+        file_path,
+        media_type="audio/mpeg",
+        filename=filename
+    )
+
 @app.post("/synthesize")
 def synthesize(req: SynthesizeRequest):
     if req.model not in MODELS:
@@ -291,12 +304,14 @@ def synthesize(req: SynthesizeRequest):
                 "patterns_used": len(rag_result.retrieved_patterns)
             }
         
-        return FileResponse(
-            out_path, 
-            media_type="audio/mpeg", 
-            filename=os.path.basename(out_path),
-            headers={"X-RAG-Info": json.dumps(response_data)}
-        )
+        # Return JSON response with file URL
+        response_data.update({
+            "audio_url": f"/audio/{os.path.basename(out_path)}",
+            "duration": 0,  # You can calculate this if needed
+            "status": "success"
+        })
+        
+        return JSONResponse(content=response_data)
         
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Synthesis failed: {e}")
