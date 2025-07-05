@@ -27,7 +27,7 @@ export const useVoiceSynthesis = () => {
     retryDelay: 1000,
   });
 
-  // Ensure voices is always an array
+  // Ensure voices is always an array and use mockVoices as fallback
   const voices = Array.isArray(voicesData) ? voicesData : mockVoices;
 
   const { data: systemStatus } = useQuery({
