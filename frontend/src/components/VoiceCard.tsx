@@ -194,7 +194,7 @@ export const VoiceCard: React.FC<VoiceCardProps> = ({
                 >
                   <Sparkles className="w-3 h-3 mr-2" />
                 </motion.div>
-                AI Voice
+                ClosedAi
               </Badge>
             </motion.div>
           </motion.div>

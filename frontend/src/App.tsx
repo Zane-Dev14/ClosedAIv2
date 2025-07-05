@@ -358,7 +358,7 @@ function AppContent() {
                   ease: 'linear',
                 }}
               >
-                AI VOICE
+                CLOSEDAI
               </motion.h1>
             </div>
 
@@ -493,7 +493,7 @@ function AppContent() {
       <section id="voices-section" className="relative py-32 animate-on-scroll mt-40">
         <motion.div 
           style={{ y: y2 }}
-          className="container mx-auto px-4 z-10 w-full"
+          className="container mx-auto px-4 z-10 max-w-screen-2xl"
         >
           <AnimatedText className="text-center mb-20" delay={0.2}>
             <h2 className="text-6xl md:text-7xl font-black mb-8 bg-gradient-to-r from-white via-blue-200 to-purple-200 bg-clip-text text-transparent">
@@ -534,7 +534,7 @@ function AppContent() {
 
       {/* Text Input Section */}
       <section className="relative py-32 animate-on-scroll">
-        <div className="container mx-auto px-4 z-10 w-full">
+        <div className="container mx-auto px-4 z-10 max-w-screen-2xl">
           <AnimatedText className="max-w-4xl mx-auto" delay={0.3}>
             <div className="text-center mb-16">
               <h2 className="text-6xl md:text-7xl font-black mb-8 bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent">
@@ -647,7 +647,7 @@ function AppContent() {
             exit={{ opacity: 0, scale: 0.8 }}
             className="relative py-32"
           >
-            <div className="container mx-auto px-4 z-10">
+            <div className="container mx-auto px-4 z-10 max-w-screen-2xl">
               <LoadingSpinner
                 progress={synthesisState.progress}
                 accentColor={selectedVoice?.accent || '#3b82f6'}
@@ -666,7 +666,7 @@ function AppContent() {
             exit={{ opacity: 0, y: -50 }}
             className="relative py-32"
           >
-            <div className="container mx-auto px-4 z-10">
+            <div className="container mx-auto px-4 z-10 max-w-screen-2xl">
               <AnimatedText className="text-center mb-16">
                 <h2 className="text-6xl md:text-7xl font-black mb-8 bg-gradient-to-r from-white via-green-200 to-blue-200 bg-clip-text text-transparent">
                   Your Voice is Ready
@@ -718,7 +718,7 @@ function AppContent() {
             exit={{ opacity: 0, scale: 0.8 }}
             className="relative py-32"
           >
-            <div className="container mx-auto px-4 z-10">
+            <div className="container mx-auto px-4 z-10 max-w-screen-2xl">
               <Card className="max-w-lg mx-auto p-8 bg-red-500/10 border-red-500/30 backdrop-blur-sm">
                 <div className="text-center">
                   <motion.div
@@ -749,7 +749,7 @@ function AppContent() {
 
       {/* Enhanced Footer */}
       <footer className="relative py-20 border-t border-white/10 backdrop-blur-sm">
-        <div className="container mx-auto px-4 z-10">
+        <div className="container mx-auto px-4 z-10 max-w-screen-2xl">
           <div className="text-center">
             <motion.p
               className="text-gray-400 text-lg"
@@ -757,7 +757,7 @@ function AppContent() {
               whileInView={{ opacity: 1 }}
               transition={{ duration: 1 }}
             >
-              © 2024 AI Voice Synthesis Studio. Powered by{' '}
+              © 2024 ClosedAI. Powered by{' '}
               <span className="text-blue-400 font-semibold">advanced AI technology</span>.
             </motion.p>
           </div>

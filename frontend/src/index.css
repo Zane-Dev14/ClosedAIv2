@@ -126,6 +126,16 @@ button:focus-visible {
     --chart-5: 340 75% 55%;
   }
 }
+html, body, #root {
+  width: 100vw !important;
+  max-width: 100vw !important;
+  overflow-x: hidden !important;
+  position: relative;
+}
+
+* {
+  box-sizing: border-box !important;
+}
 
 @layer base {
   * {
