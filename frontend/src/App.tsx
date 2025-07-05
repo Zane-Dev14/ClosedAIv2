@@ -483,7 +483,7 @@ function AppContent() {
       </section>
 
       {/* Voice Selection Section */}
-      <section id="voices-section" className="relative py-32 animate-on-scroll">
+      <section id="voices-section" className="relative py-32 animate-on-scroll mt-40">
         <motion.div 
           style={{ y: y2 }}
           className="container mx-auto px-4 z-10"

@@ -131,8 +131,8 @@ export const mockVoices: VoiceModel[] = [
   },
   {
     id: 'hutao',
-    name: 'Hu Tao',
-    description: 'Energetic and playful anime character voice',
+    name: 'JP Boy',
+    description: 'Japanese,cool and composed voice',
     avatar: 'https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg',
     color: '#7c3aed',
     accent: '#a855f7',
