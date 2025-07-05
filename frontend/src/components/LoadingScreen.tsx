@@ -16,7 +16,7 @@ export const LoadingScreen = () => {
           <Canvas className="w-full h-full max-w-full max-h-full">
             <MicrophoneContent />
           </Canvas>
-        </div>
+          </div>
         {/* Title */}
         <motion.h1
           className="text-4xl font-bold text-white mb-4"

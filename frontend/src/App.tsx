@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { motion, AnimatePresence, useScroll, useTransform, useSpring } from 'framer-motion';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls, Sphere, MeshDistortMaterial, Float, Environment } from '@react-three/drei';
+import { OrbitControls, Sphere, MeshDistortMaterial, Float, Text3D, Environment } from '@react-three/drei';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { CssBaseline, Fab, Zoom } from '@mui/material';
 import { useInView } from 'react-intersection-observer';
@@ -22,9 +22,10 @@ import { LoadingSpinner } from '@/components/LoadingSpinner';
 import { MouseFollower } from '@/components/MouseFollower';
 import { InteractiveBackground } from '@/components/InteractiveBackground';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
+import { LoadingScreen } from '@/components/LoadingScreen';
 import { useVoiceSynthesis } from '@/hooks/useVoiceSynthesis';
 import { VoiceModel } from '@/lib/api';
-import { Sparkles, Play, ChevronDown, Zap, Music, AudioWaveform as Waveform, Volume2, Keyboard as KeyboardArrowUp } from 'lucide-react';
+import { Mic, Sparkles, Play, ChevronDown, Zap, Music, AudioWaveform as Waveform, Volume2, Keyboard as KeyboardArrowUp } from 'lucide-react';
 import { toast } from 'sonner';
 import * as THREE from 'three';
 
@@ -113,6 +114,16 @@ const MicrophoneContent = () => {
   );
 };
 
+const FloatingMicrophone = () => {
+  return (
+    <div className="w-full h-full flex items-center justify-center">
+      <Canvas className="w-full h-full">
+        <MicrophoneContent />
+      </Canvas>
+    </div>
+  );
+};
+
 // Animated Text Component
 const AnimatedText = ({ children, className = "", delay = 0 }: { children: React.ReactNode, className?: string, delay?: number }) => {
   const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true });
@@ -191,6 +202,7 @@ function AppContent() {
   const [selectedVoice, setSelectedVoice] = useState<VoiceModel | null>(null);
   const [inputText, setInputText] = useState('');
   const [useRag, setUseRag] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll();
   const y1 = useTransform(scrollY, [0, 300], [0, 200]);
@@ -538,6 +550,7 @@ function AppContent() {
               onChange={setInputText}
               placeholder={`Enter text to synthesize with ${selectedVoice?.name || 'selected voice'}...`}
               maxLength={1000}
+              disabled={synthesisState.isLoading}
             />
 
             {/* RAG Toggle */}
@@ -588,7 +601,7 @@ function AppContent() {
                 <Button
                   size="lg"
                   onClick={handleSynthesize}
-                  disabled={!selectedVoice || !inputText.trim()}
+                  disabled={!selectedVoice || !inputText.trim() || synthesisState.isLoading}
                   className="px-12 py-6 text-xl font-semibold bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 hover:from-purple-700 hover:via-pink-700 hover:to-red-700 transition-all duration-500 disabled:opacity-50 shadow-2xl shadow-purple-500/25 border-0 rounded-2xl"
                 >
                   {synthesisState.isLoading ? (

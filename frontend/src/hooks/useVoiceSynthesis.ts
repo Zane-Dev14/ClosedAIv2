@@ -53,7 +53,7 @@ export const useVoiceSynthesis = () => {
       try {
         // Call the actual API
         const response = await api.synthesizeVoice(request);
-        
+
         clearInterval(progressInterval);
         setSynthesisState(prev => ({
           ...prev,
