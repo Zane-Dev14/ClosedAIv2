@@ -647,7 +647,12 @@ function AppContent() {
             exit={{ opacity: 0, scale: 0.8 }}
             className="relative py-32"
           >
-            <div className="container mx-auto px-4 z-10 max-w-screen-2xl">
+            <div className="container mx-auto px-4 z-10 max-w-screen-2xl flex flex-col items-center justify-center">
+              <div className="w-32 h-32 mb-8">
+                <Canvas className="w-full h-full max-w-full max-h-full">
+                  <MicrophoneContent />
+                </Canvas>
+              </div>
               <LoadingSpinner
                 progress={synthesisState.progress}
                 accentColor={selectedVoice?.accent || '#3b82f6'}
